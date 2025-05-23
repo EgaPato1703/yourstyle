@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Твой стиль | Парикмахерская</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins :wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fdd835, #2e7d32);
+      color: #fff;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    header {
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      font-size: 1.2rem;
+      color: #fefefe;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 20px 10px;
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #2e7d32;
+      background-color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #fdd835;
+      transform: scale(1.05);
+    }
+    /* Стиль модального окна */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 8% auto;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  color: #000;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2e7d32;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #2e7d32;
+}
+
+form label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: 'Poppins', sans-serif;
+}
+
+form button {
+  width: 100%;
+  margin-top: 20px;
+}
+    footer {
+      margin-top: 80px;
+      padding: 40px 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Твой стиль</h1>
+    <p>Добро пожаловать в Your style — ваше уютное пространство стиля и роскоши. Мы предлагаем профессиональные услуги по уходу за волосами, индивидуальный подход и атмосферу комфорта.</p>
+    <a href="services.html" class="btn">Посмотреть услуги</a>
+  </header>
+  <h1>Наша цель</h1>
+  <p>Мы даем возможность выбора нашим клиентам <br>
+  Профессионально консультируем человека при выборе <br>
+  Наши специалисты не оставят вас без стиля,
+  потому что мы и есть стиль</p>
+  <footer>
+    <p>Свяжитесь с нами прямо сейчас!</p>
+    <a href="#bookingModal" class="btn">Записаться</a>
+    <br>
+    <a href="https://yandex.ru/maps/org/tvoy_stil/183035054165/?ll=58.974371%2C55.040420&z=16.24">Как нас найти</a>
+  </footer>
+<!-- Модальное окно -->
+<div id="bookingModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Онлайн-запись</h2>
+    <form id="bookingForm">
+      <label>Ваше имя:
+        <input type="text" name="name" required />
+      </label>
+
+      <label>Телефон:
+        <input type="tel" name="phone" required />
+      </label>
+
+      <label>Услуга:
+        <select name="service">
+          <option value="Стрижка">Стрижка</option>
+          <option value="Окрашивание">Окрашивание</option>
+          <option value="Укладка">Укладка</option>
+          <option value="SPA-процедура">SPA-процедура</option>
+        </select>
+      </label>
+
+      <label>Желаемое время:
+        <input type="datetime-local" name="time" />
+      </label>
+
+      <label>Комментарий (необязательно):
+        <textarea name="comment" rows="4"></textarea>
+      </label>
+
+      <button type="submit" class="btn">Отправить заявку</button>
+    </form>
+  </div>
+</div>
+<script>
+  // Открытие модального окна
+  document.querySelectorAll('[href="#bookingModal"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('bookingModal').style.display = 'block';
+    });
+  });
+
+  // Закрытие по крестику
+  document.querySelector('.close-btn')?.addEventListener('click', function() {
+    document.getElementById('bookingModal').style.display = 'none';
+  });
+
+  // Закрытие по клику вне окна
+  window.addEventListener('click', function(e) {
+    const modal = document.getElementById('bookingModal');
+    if (modal && e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  // Отправка формы в WhatsApp
+  document.getElementById("bookingForm")?.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Проверяем обязательные поля
+    if (!this.name.value.trim() || !this.phone.value.trim()) {
+      alert("Пожалуйста, заполните имя и телефон.");
+      return;
+    }
+
+    // Собираем данные
+    const name = encodeURIComponent(this.name.value.trim());
+    const phone = encodeURIComponent(this.phone.value.trim());
+    const service = encodeURIComponent(this.service.value);
+    const time = this.time.value ? new Date(this.time.value).toLocaleString() : 'Не указано';
+    const comment = encodeURIComponent(this.comment.value.trim());
+
+    const whatsappNumber = "79123071414"; // Твой номер без +
+
+    const message = `
+🔔 Новая заявка на запись 🔔
+
+👤 Имя: ${name}
+📞 Телефон: ${phone}
+💇‍♀️ Услуга: ${service}
+🕒 Желаемое время: ${time}
+💬 Комментарий: ${comment || "нет"}
+`;
+
+    const encodedMessage = encodeURIComponent(message.trim());
+    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Задержка перед открытием WhatsApp
+    setTimeout(() => {
+      window.open(whatsappLink, '_blank');
+    }, 500);
+
+    this.reset();
+    alert("Спасибо за заявку! Мы свяжемся с вами.");
+    document.getElementById('bookingModal').style.display = 'none';
+  });
+</script>
+</body>
+</html>

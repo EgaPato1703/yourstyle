@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your style - услуги</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins :wght@400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fdd835, #2e7d32);
+      color: #fff;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    header {
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .services-list {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .service-card {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+
+    .service-card p {
+      font-size: 1rem;
+      color: #fffbe6;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #2e7d32;
+      background-color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #fdd835;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 80px;
+      padding: 40px 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Наши Услуги</h1>
+    <p>В Your style мы предлагаем широкий спектр услуг для мужчин и женщин. Каждый клиент получает индивидуальный подход и внимание от опытных мастеров.</p>
+  </header>
+
+  <section class="services-list">
+    <div class="service-card">
+      <h3>Модное окрашивание</h3>
+      <p>Профессиональное окрашивание с использованием качественных составов и трендовых техник.</p>
+    </div>
+    <div class="service-card">
+      <h3>Стрижка под ключ</h3>
+      <p>От стрижки до укладки — создадим идеальный образ для любого случая.</p>
+    </div>
+    <div class="service-card">
+      <h3>SPA-процедуры для волос</h3>
+      <p>Глубокое восстановление, питание и блеск ваших волос после каждого визита.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Свяжитесь с нами прямо сейчас!</p>
+    <a href="https://vk.com/tvoistil31" class="btn" target="_blank">
+  📱 Группа ВКонтакте
+</a>
+    <br><br>
+    <a href="index.html" style="color: #fff; font-size: 0.9rem;">← Назад на главную</a>
+  </footer>
+</body>
+</html>
