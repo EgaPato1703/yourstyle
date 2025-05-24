@@ -254,5 +254,19 @@ form button {
     100% { opacity: 1; }
   }
 </style>
+  <script>
+  const tips = [
+    "Если не знаешь, как укладывать — просто взъерошь!",
+    "Лучший цвет волос — тот, который делает тебя счастливее.",
+    "Стрижка на ночь перед свиданием? Только если это авантюра.",
+    "Гель? Лак? Главное — уверенность!",
+    "Хочешь быть в тренде? Спроси у своей парикмахерши!"
+  ];
+
+  function showHairTip() {
+    const randomTip = tips[Math.floor(Math.random() * tips.length)];
+    document.getElementById("hairTip").textContent = randomTip;
+  }
+</script>
 </body>
 </html>
