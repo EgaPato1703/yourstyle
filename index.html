@@ -170,7 +170,7 @@ form button {
         <textarea name="comment" rows="4"></textarea>
       </label>
 
-      <button type="submit" class="btn">Отправить заявку</button>
+       <button type="button" class="btn" onclick="sendBooking()">Отправить заявку</button>
     </form>
   </div>
 </div>
@@ -196,24 +196,22 @@ form button {
     }
   });
 
-  // Отправка формы в WhatsApp
-  document.getElementById("bookingForm")?.addEventListener("submit", function(event) {
-    event.preventDefault();
+  // Отправка формы — ПРОСТОЙ ВАРИАНТ (работает во всех браузерах)
+  function sendBooking() {
+    const form = document.forms.bookingForm;
 
-    // Проверяем обязательные поля
-    if (!this.name.value.trim() || !this.phone.value.trim()) {
+    if (!form.name.value.trim() || !form.phone.value.trim()) {
       alert("Пожалуйста, заполните имя и телефон.");
       return;
     }
 
-    // Собираем данные
-    const name = encodeURIComponent(this.name.value.trim());
-    const phone = encodeURIComponent(this.phone.value.trim());
-    const service = encodeURIComponent(this.service.value);
-    const time = this.time.value ? new Date(this.time.value).toLocaleString() : 'Не указано';
-    const comment = encodeURIComponent(this.comment.value.trim());
+    const name = encodeURIComponent(form.name.value.trim());
+    const phone = encodeURIComponent(form.phone.value.trim());
+    const service = encodeURIComponent(form.service.value);
+    const time = form.time.value ? new Date(form.time.value).toLocaleString() : 'Не указано';
+    const comment = encodeURIComponent(form.comment.value.trim());
 
-    const whatsappNumber = "79123071414"; // Твой номер без +
+    const whatsappNumber = "79123071414";
 
     const message = `
 🔔 Новая заявка на запись 🔔
@@ -223,20 +221,13 @@ form button {
 💇‍♀️ Услуга: ${service}
 🕒 Желаемое время: ${time}
 💬 Комментарий: ${comment || "нет"}
-`;
+`.trim();
 
-    const encodedMessage = encodeURIComponent(message.trim());
-    const whatsappLink = `https://wa.me/ ${whatsappNumber}?text=${encodedMessage}`;
+    const whatsappLink = `https://wa.me/ ${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-    // Задержка перед открытием WhatsApp
-    setTimeout(() => {
-      window.open(whatsappLink, '_blank');
-    }, 500);
-
-    this.reset();
-    alert("Спасибо за заявку! Мы свяжемся с вами.");
-    document.getElementById('bookingModal').style.display = 'none';
-  });
+    // Работает везде, даже в Safari
+    window.location.href = whatsappLink;
+  }
 </script>
   <script src="main.js" defer></script>
   <p class="fun-text">Стиль — это когда тебя узнают без телефона и зеркала.</p>
