@@ -239,5 +239,20 @@ form button {
   });
 </script>
   <script src="main.js" defer></script>
+  <p class="fun-text">Стиль — это когда тебя узнают без телефона и зеркала.</p>
+
+<style>
+  .fun-text {
+    font-size: 1.2rem;
+    color: #fffbe6;
+    animation: blinker 3s infinite;
+    margin-top: 20px;
+  }
+
+  @keyframes blinker {
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+</style>
 </body>
 </html>
